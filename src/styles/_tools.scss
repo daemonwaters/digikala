@@ -1,0 +1,59 @@
+/* colors*/
+$primary-red: #ef394e;
+$secondary-green: #6bb928;
+$bg-input-box: #f0f0f1;
+$bg-body: #f1f1f1;
+$clr-search-icon: #a1a3a8;
+$clr-header-btn: #616161;
+$clr-shopping-cart-icon: #424750;
+$clr-nav-link: #616161;
+$clr-discount: #acacac;
+$clr-dropdown-heading: #333;
+
+/*font info*/
+
+$fs-navlink: 0.875rem;
+$fs-header: 0.75rem;
+$fs-dropdown-main-heading: 0.75rem;
+$fs-dropdown-bold-heading: 0.875rem;
+$fw-heading: 700;
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin dropdown {
+  position: absolute;
+  top: 100%;
+  background: #fff;
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 0 0 10px 10px;
+}
+
+@mixin dd-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+}
+
+@mixin dd-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@mixin after {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2%;
+    right: -4%;
+    background: $primary-red;
+    width: 2px;
+    height: 20px;
+  }
+}
