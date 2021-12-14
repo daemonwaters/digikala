@@ -1,0 +1,27 @@
+export const currentUserData = [
+    {
+        username:"user1",
+        password:"password1",
+        name:'eric',
+        mail:'eric@gmail.com',
+        number:'12-455-43'
+    },{
+        username:"user2",
+        password:"password2",
+        name:'john',
+        mail:'john@gmail.com',
+        number:'46-903-04'
+    },{
+        username:"user3",
+        password:"password3",
+        name:'lucy',
+        mail:'lucy123@gmail.com',
+        number:'15-033-04'
+    },{
+        username:"user4",
+        password:"password4",
+        name:'daniel',
+        mail:'dany45@gmail.com',
+        number:'06-113-04'
+    }
+]

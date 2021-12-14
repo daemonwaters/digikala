@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { ReactComponent as Logo } from "../media/svgs/Logo.svg";
 import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
 import SearchHistory from "./SearchHistory";
+import { Link } from "react-router-dom";
 
-function Header() {
+function Header({ auth, length }) {
   const [search, setSearch] = useState("");
 
   const [history, setHistory] = useState([]);
@@ -44,7 +45,9 @@ function Header() {
     <header className="header">
       <div className="right-sec">
         <div className="logo">
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
         </div>
         <div className="search-box">
           <input
@@ -67,11 +70,21 @@ function Header() {
         </div>
       </div>
       <div className="left-sec">
-        <button>
-          <FaUser />
-          ورود به حساب کاربری
-        </button>
-        <FaShoppingCart />
+        <Link to={auth ? "/profile" : "/login"}>
+          <button id={auth ? "no-border" : null}>
+            {auth ? (
+              <FaUser />
+            ) : (
+              <>
+                <FaUser />
+                ورود به حساب کاربری
+              </>
+            )}
+          </button>
+        </Link>
+        <Link to="/cart">
+          <FaShoppingCart />
+        </Link>
       </div>
     </header>
   );

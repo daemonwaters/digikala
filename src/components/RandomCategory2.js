@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { BsPatchCheckFill } from "react-icons/bs";
+import { BsPatchCheckFill, BsCartPlus } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { randomCategory2Data } from "./RandomCategory2Data";
 
-function RandomCategory2() {
+function RandomCategory2({ cartItems, setCartItems, auth }) {
   const { slides, categoryTitle } = randomCategory2Data;
   const [offset, setOffset] = useState(0);
   //change the value of transform:translate property using this state
@@ -38,6 +38,25 @@ function RandomCategory2() {
                 <img src={item.pic} alt={`pic-slider`} />
                 <p>{item.info}</p>
                 <p>{item.price} تومان</p>
+                {auth ? (
+                  <div
+                    onClick={() => {
+                      setCartItems([
+                        ...cartItems,
+                        {
+                          img: item.pic,
+                          info: item.info,
+                          qnt: 1,
+                          price: item.price,
+                        },
+                      ]);
+                    }}
+                    title="اضافه کردن به سبد خرید"
+                    className="add-btn"
+                  >
+                    <BsCartPlus />
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>

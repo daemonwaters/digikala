@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { BsClock } from "react-icons/bs";
+import { BsClock, BsCartPlus } from "react-icons/bs";
 import offer from "../media/offerpics/offer.png";
 import Button from "./Button";
 
-function OfferSection({ offers, bg, date }) {
+function OfferSection({ offers, bg, date, cartItems, setCartItems, auth }) {
   const [countDown, setCountDown] = useState({
     days: 0,
     hours: 0,
@@ -81,6 +81,25 @@ function OfferSection({ offers, bg, date }) {
                 {countDown.seconds}
                 <BsClock />
               </p>
+              {auth ? (
+                <div
+                  title="اضافه کردن به سبد خرید"
+                  className="add-btn"
+                  onClick={() => {
+                    setCartItems([
+                      ...cartItems,
+                      {
+                        img: item.pic,
+                        info: item.info,
+                        qnt: 1,
+                        price: item.price,
+                      },
+                    ]);
+                  }}
+                >
+                  <BsCartPlus />
+                </div>
+              ) : null}
             </div>
           ))}
         </div>

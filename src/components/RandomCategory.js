@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { randomCategoryData } from "./RandomCategoryData";
 import { randomOfferForYouData } from "./ROFYdata";
+import { BsCartPlus } from "react-icons/bs";
 
-function RandomCategory() {
+function RandomCategory({ cartItems, setCartItems, auth }) {
   const [offset, setOffset] = useState(0);
   const [random, setRandom] = useState(0);
   const { slides, categoryTitle } = randomCategoryData;
-  const { price, info, oldPrice, discount, pic } = randomOfferForYouData[random];
+  const { price, info, oldPrice, discount, pic } =
+    randomOfferForYouData[random];
   //change the content of the random offer section based on the state
   const length = slides.length;
 
@@ -48,6 +50,25 @@ function RandomCategory() {
                 <img src={item.pic} alt={`pic-slider`} />
                 <p>{item.info}</p>
                 <p>{item.price} تومان</p>
+                {auth ? (
+                  <div
+                    onClick={() => {
+                      setCartItems([
+                        ...cartItems,
+                        {
+                          img: item.pic,
+                          info: item.info,
+                          qnt: 1,
+                          price: item.price,
+                        },
+                      ]);
+                    }}
+                    title="اضافه کردن به سبد خرید"
+                    className="add-btn"
+                  >
+                    <BsCartPlus />
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>
