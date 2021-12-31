@@ -13,7 +13,7 @@ function DigiClub({ hover2 }) {
     seconds: 0,
   });
   useEffect(() => {
-    let thatTime = new Date("dec 28,2021 15:35:56").getTime();
+    let thatTime = new Date("jan 15,2022 15:35:56").getTime();
     setInterval(() => {
       let nowTime = new Date().getTime();
       let distance = thatTime - nowTime;

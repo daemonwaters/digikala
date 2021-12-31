@@ -43,7 +43,7 @@ function Cart({ auth, cartItems, setCartItems }) {
                 </div>
               </div>
             ) : (
-              cartItems.map((item, index) => {
+              cartItems.sort((a,b)=> a.price - b.price).map((item, index) => {
                 return (
                   <CartItem
                     setCartItems={setCartItems}

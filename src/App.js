@@ -56,7 +56,7 @@ function App() {
                 <StateModal setModal={setModal} modal={modal} />
                 <Hero />
                 <OfferSection
-                  date="dec 15,2021 23:59:59"
+                  date="jan 14,2022 23:59:59"
                   offers={offerSecData}
                   setCartItems={setCartItems}
                   cartItems={cartItems}
@@ -64,7 +64,7 @@ function App() {
                 />
                 <Fourcards cards={cardsData} />
                 <OfferSection
-                  date="dec 27,2021 14:39:00"
+                  date="jan 27,2022 14:39:00"
                   bg="#6BB928"
                   offers={offerSecData2}
                   setCartItems={setCartItems}

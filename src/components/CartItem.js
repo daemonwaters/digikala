@@ -11,7 +11,7 @@ function CartItem({
   setCartItems,
   cartItem,
 }) {
-  const [input, setInput] = useState(qnt);
+  const [input, setInput] = useState(1);
   const handleChange = (e) => {
     if (e.target.value <= 1) {
       setInput(1);
@@ -30,7 +30,7 @@ function CartItem({
       ...except,
       {
         ...cartItem,
-        qnt: input,
+        qnt: input
       },
     ]);
   }, [input]);
@@ -40,7 +40,7 @@ function CartItem({
       <span className="cart-item-index">{index + 1}</span>
       <img src={img} alt={`cart-item-pic${index}`} />
       <p>{info}</p>
-      <input onChange={handleChange} type="number" step="1" value={input} />
+      <input onChange={handleChange} type="number" step="1" value={qnt} />
       <h3>مبلغ : {price}</h3>
       <FaTrash onClick={handleRemove} />
     </div>
